@@ -1,6 +1,7 @@
 package api
 
 import (
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"time"
 )
@@ -10,6 +11,7 @@ type Server struct {
 }
 
 func (s *Server) Run(port string, handler http.Handler) error {
+	logrus.Println("start")
 	s.httpServer = &http.Server{
 		Addr:           ":" + port,
 		Handler:        handler,
